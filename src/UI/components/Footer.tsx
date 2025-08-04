@@ -6,7 +6,7 @@ export const Footer = () => {
 
     <section className="footer">
 
-      <section className="w-4xl flex gap-2 justify-between">
+      <section className="container w-4xl flex gap-2 justify-between">
 
         <section className='flex flex-col gap-3 w-1/2'>
 
