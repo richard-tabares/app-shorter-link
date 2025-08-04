@@ -76,7 +76,7 @@ body{
 ** footer
 *************/
 .footer {
-    @apply bg-primary text-lightBg p-12 mt-12;
+    @apply bg-primary text-lightBg p-12 mt-12 flex flex-col items-center;
 }
 .icons-socials {
     @apply flex gap-3 size-4 hover:text-lightBg/60 cursor-pointer transition duration-300;
