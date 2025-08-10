@@ -3,7 +3,7 @@ export const postShortLink = async (inputUrl: string) => {
 
   const apiUrl = import.meta.env.VITE_API_URL
   
-  const response = await fetch(`${apiUrl}`, {
+  const response = await fetch(`${apiUrl}/idLink`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
