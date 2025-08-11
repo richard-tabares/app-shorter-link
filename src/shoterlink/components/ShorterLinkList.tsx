@@ -1,6 +1,6 @@
 import { FaArrowsTurnRight, FaQrcode, FaRegCopy } from "react-icons/fa6"
 import { useLinkStore } from "../../store/useLinkStore"
-import { ToastContainer, toast, type TypeOptions } from "react-toastify"
+import { toast, type TypeOptions } from "react-toastify"
 
 export const ShorterLinkList = () => {
 
