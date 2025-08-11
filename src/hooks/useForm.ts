@@ -1,12 +1,12 @@
 import { useState } from "react"
 
-export const useForm = (inputUrl = {}) => {
+export const useForm = (inputUrl: {inputUrl:string} = {inputUrl: ''}) => {
 
     const [state, setState] = useState(inputUrl)
 
-    const onInputChange = ({ target }) => {
+    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
-        const { name, value } = target
+        const { name, value } = event.target
         setState({
             ...state,
             [name]: value

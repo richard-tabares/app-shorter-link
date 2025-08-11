@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 type linkData = {
     idLink: string,
@@ -11,9 +12,11 @@ type linkState = {
 }
 
 
-export const useLinkStore = create<linkState>((set) => ({
-    links: [],
-    addLink: (data) => set((state) => ({
-        links: [ ...state.links, data ]
-    }))
- }))
+export const useLinkStore = create<linkState>()(
+    persist(
+        (set) => ({
+            links: [],
+            addLink: (data) => set((state) => ({
+                links: [data, ...state.links]
+            }))
+        }), { name: 'shortlinks' }))

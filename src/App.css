@@ -92,4 +92,6 @@ body{
     --toastify-color-light: #FEFBF1;
     --toastify-color-progress-warning: #F28181;
     --toastify-icon-color-error: #F28181;
+    /* --toastify-color-info: #FEFBF1;*/
+    --toastify-color-progress-info: #F28181; 
 }

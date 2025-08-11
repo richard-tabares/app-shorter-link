@@ -11,15 +11,19 @@ export const ShorterLink = () => {
     const { inputUrl, onInputChange, onResetForm } = useForm({ inputUrl: '' })
 
 
-    const notify = (msg: string, type:TypeOptions) => toast(msg, {type})
+    const notify = (msg: string, type: TypeOptions, idToast: string) => {
+
+        if (idToast && toast.isActive(idToast)) return;
+        toast(msg, { type, toastId: idToast })
+
+    }
 
 
     const createShortLink = async (inputUrl: string) => {
 
-        // if (!inputUrl.trim()) return
         if (!inputUrl?.trim()) {
 
-            notify('El campo de la url esta vacio', 'warning' )
+            notify('El campo de la url esta vacio', 'warning', 'empty-link')
             return
         }
 
@@ -29,9 +33,9 @@ export const ShorterLink = () => {
 
         } catch (error) {
 
-            notify('Url Invalida', 'warning')
+            notify('Url Invalida', 'warning', 'invalid-url')
             return
-            
+
         }
 
         try {
@@ -42,7 +46,7 @@ export const ShorterLink = () => {
 
         } catch (error) {
 
-            notify('Hubo un problema a intentar acortar la Url, intentalo de nuevo', 'error')
+            notify('Hubo un problema a intentar acortar la Url, intentalo de nuevo', 'error', 'error-fetch')
             return
 
         }

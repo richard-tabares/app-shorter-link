@@ -6,7 +6,7 @@ import { Footer } from "../UI/components/Footer"
 export const AppRouter = () => {
   return (
 
-    <section className="flex flex-col h-screen justify-between border">
+    <section className="flex flex-col h-auto justify-between">
 
       <section className="container w-4xl mx-auto p-4 max-xs:w-auto">
 
