@@ -15,7 +15,7 @@ export const Footer = () => {
 
           {/* Info */}
           <section className=''>
-            <p>En <strong>Acortalo</strong>, hacemos que compartir sea más sencillo. Acortamos tus enlaces para que tú puedas enfocarte en lo importante: conectar con tu audiencia</p>
+            <p>En <strong>GoLink</strong>, hacemos que compartir sea más sencillo. Acortamos tus enlaces para que tú puedas enfocarte en lo importante: conectar con tu audiencia</p>
           </section>
 
           {/* Socials */}
