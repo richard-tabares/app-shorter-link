@@ -11,6 +11,7 @@ export const postShortLink = async (inputUrl: string) => {
     body: JSON.stringify({ inputUrl })
   })
 
+  console.log('prueba de paso')
   const shortLink = await response.json()
 
   return shortLink
