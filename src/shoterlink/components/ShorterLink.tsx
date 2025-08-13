@@ -14,14 +14,12 @@ export const ShorterLink = () => {
 
     const { inputUrl, onInputChange, onResetForm } = useForm({ inputUrl: '' })
 
-
     const notify = (msg: string, type: TypeOptions, idToast: string) => {
 
         if (idToast && toast.isActive(idToast)) return;
         toast(msg, { type, toastId: idToast })
 
     }
-
 
     const createShortLink = async (inputUrl: string) => {
 
@@ -46,13 +44,17 @@ export const ShorterLink = () => {
 
             setLoading(true)
             const dataLink = await postShortLink(inputUrl)
+
+            if (dataLink.error) throw new Error(dataLink.error.message) 
             addLink(dataLink)
             setLoading(false)
             onResetForm()
 
         } catch (error) {
 
-            notify('Hubo un problema a intentar acortar la Url, intentalo de nuevo', 'error', 'error-fetch')
+            const message = error instanceof Error ? error.message : 'Error Desconocido'
+
+            notify(message, 'error', 'error-fetch')
             setLoading(false)
             return
 
