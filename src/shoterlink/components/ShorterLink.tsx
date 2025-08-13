@@ -3,8 +3,12 @@ import { useForm } from '../../hooks/useForm'
 import { postShortLink } from '../../helpers/postShortLink'
 import { useLinkStore } from '../../store/useLinkStore'
 import { ToastContainer, toast, type TypeOptions } from 'react-toastify'
+import { Loading } from './Loading'
+import { useState } from 'react'
 
 export const ShorterLink = () => {
+
+    const [loading, setLoading] = useState(false)
 
     const addLink = useLinkStore(state => state.addLink)
 
@@ -40,13 +44,16 @@ export const ShorterLink = () => {
 
         try {
 
+            setLoading(true)
             const dataLink = await postShortLink(inputUrl)
             addLink(dataLink)
+            setLoading(false)
             onResetForm()
 
         } catch (error) {
 
             notify('Hubo un problema a intentar acortar la Url, intentalo de nuevo', 'error', 'error-fetch')
+            setLoading(false)
             return
 
         }
@@ -70,12 +77,13 @@ export const ShorterLink = () => {
 
             </section>
 
-            <button className="btn-primary" onClick={() => createShortLink(inputUrl)}>Acortar</button>
+            <button className={`btn-primary ${loading && 'bg-accentBlue! opacity-70 cursor-not-allowed'}`} onClick={() => createShortLink(inputUrl)} disabled={loading}>{ loading ? 'Acortando' : 'Acortar Link' } { loading && <Loading /> }</button>
 
             <ToastContainer
                 position='top-right'
                 autoClose={4000}
             />
+            
 
         </section >
 

@@ -49,7 +49,7 @@ body{
 ** shorterLink
 *************/
 .btn-primary {
-    @apply bg-accentRed text-lightBg w-full py-2 cursor-pointer rounded-lg font-semibold hover:bg-accentRed/80 transition duration-300;
+    @apply bg-accentRed text-lightBg w-full py-2 cursor-pointer rounded-lg font-semibold hover:bg-accentRed/80 transition duration-300 items-center justify-center gap-2 flex;
 }
 .input-link {
     @apply w-full pl-10 pr-4 py-4 rounded-lg text-sm border border-accentBlue/15 placeholder:text-subtitle/60 ;
