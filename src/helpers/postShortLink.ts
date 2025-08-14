@@ -13,6 +13,7 @@ export const postShortLink = async (inputUrl: string) => {
       body: JSON.stringify({ inputUrl })
     })
 
+    //response.ok
     const shortLink = await response.json()
 
     if (shortLink.error) throw new Error(shortLink.error)
