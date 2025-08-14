@@ -4,6 +4,7 @@ import { toast, type TypeOptions } from "react-toastify"
 
 export const ShorterLinkList = () => {
 
+    //fuction para llamar a la notificacion
     const notify = (msg: string, type: TypeOptions, idToast: string) => {
 
         if (idToast && toast.isActive(idToast)) return;
@@ -11,7 +12,6 @@ export const ShorterLinkList = () => {
         
     }
     const links = useLinkStore(state => state.links)
-    // const shortLink = useLinkStore(state => state.links.shortLink)
 
     //funcion para copiar en portapapeles con el icono
     const copyButtom = (textToCopy: string) => {

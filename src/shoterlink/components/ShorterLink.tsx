@@ -9,11 +9,10 @@ import { useState } from 'react'
 export const ShorterLink = () => {
 
     const [loading, setLoading] = useState(false)
-
-    const addLink = useLinkStore(state => state.addLink)
-
     const { inputUrl, onInputChange, onResetForm } = useForm({ inputUrl: '' })
-
+    const addLink = useLinkStore(state => state.addLink)
+    
+    //fuction para llamar a la notificacion
     const notify = (msg: string, type: TypeOptions, idToast: string) => {
 
         if (idToast && toast.isActive(idToast)) return;
@@ -21,14 +20,17 @@ export const ShorterLink = () => {
 
     }
 
+    //funcion para crear el short link al clicar boton
     const createShortLink = async (inputUrl: string) => {
 
+        //validacion de que no este vacio el input
         if (!inputUrl?.trim()) {
 
             notify('El campo de la url esta vacio', 'warning', 'empty-link')
             return
         }
 
+        //se valida que se aun URL valida HTTP
         try {
 
             new URL(inputUrl)
@@ -43,9 +45,14 @@ export const ShorterLink = () => {
         try {
 
             setLoading(true)
+
+            //envia la url al helper y este se conecta con el backend para obtener el idLink
             const dataLink = await postShortLink(inputUrl)
 
-            if (dataLink.error) throw new Error(dataLink.error.message) 
+            //lanzamos error en caso de que la respuesta del backend sea error
+            if (dataLink.error) throw new Error(dataLink.error)
+            
+            //actualiza el estado global con el nuevo link acortado
             addLink(dataLink)
             setLoading(false)
             onResetForm()
