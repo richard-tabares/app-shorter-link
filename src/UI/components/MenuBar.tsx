@@ -1,12 +1,22 @@
 import { useState } from "react"
 import { FaAngleDown, FaBars, FaX } from "react-icons/fa6"
+import { useNavigate } from "react-router"
 
 export const MenuBar = () => {
 
   const [menuMobile, setMenuMobile] = useState(true)
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setMenuMobile(!menuMobile)
+  }
+
+  const onLogin = () => {
+
+    navigate('/login', {
+      replace: true
+    })
+
   }
 
   return (
@@ -35,7 +45,7 @@ export const MenuBar = () => {
 
         {/* Log In - Sing Up */}
         <section className="flex gap-2 items-center max-xxs:hidden">
-          <a href="#" className="login-btn">Iniciar sesión</a>
+          <a href="#" className="login-btn" onClick={onLogin}>Iniciar sesión</a>
           <a href="#" className="singup-btn">Registrarse</a>
         </section>
 

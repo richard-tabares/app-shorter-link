@@ -1,12 +1,23 @@
 import './App.css'
-import { AppRouter } from './router/AppRouter'
+import { ShoterLinkPage } from './pages/ShoterLinkPage'
+import { Footer } from './UI/components/Footer'
+import { MenuBar } from './UI/components/MenuBar'
 
-function App() {
+export const App = () => {
 
   return (
-    
-    <AppRouter />
+
+    <section className="flex flex-col h-auto justify-between">
+
+      <section className="container w-4xl mx-auto p-4 max-xs:w-auto">
+
+        <MenuBar />
+        <ShoterLinkPage />
+
+      </section>
+
+      <Footer />
+
+    </section>
   )
 }
-
-export default App
