@@ -17,7 +17,7 @@ export const postShortLink = async (inputUrl: string) => {
     //si la respuesta no es ok, lanzamos error
     if (!response.ok) {
 
-      throw new Error(`Error HTTP ${response.status}`)
+      throw new Error(`${response.status}`)
 
     }
 

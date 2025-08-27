@@ -23,6 +23,9 @@
 body{
     @apply bg-lightBg text-sm font-display;
 }
+.isActive {
+    @apply bg-accentBlue/20 text-primary;
+}   
 /************
 ** menu
 *************/
@@ -30,10 +33,10 @@ body{
     @apply flex place-items-center gap-2 px-5 py-3 text-subtitle font-medium hover:bg-accentBlue/20 transition duration-300 sm:rounded-lg;
 }
 .login-btn {
-    @apply bg-lightBg border border-primary px-3 py-2 text-subtitle font-medium rounded-lg;
+    @apply bg-lightBg border border-primary px-3 py-2 text-subtitle font-medium rounded-lg cursor-pointer;
 }
 .singup-btn {
-    @apply bg-primary border border-primary px-3 py-2 text-lightBg font-medium rounded-lg hover:bg-primary/80;
+    @apply bg-primary border border-primary px-3 py-2 text-lightBg font-medium rounded-lg hover:bg-primary/80 cursor-pointer;
 }
 .logo{
 

@@ -1,30 +1,45 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router'
-import "./App.css"
-import { Login } from './auth/componenst/Login.tsx'
+import './App.css'
 import { App } from './App.tsx'
 import { ShoterLinkPage } from './pages/ShoterLinkPage.tsx'
+import { Auth } from './auth/components/Auth.tsx'
+import { ContactPage } from './pages/ContactPage.tsx'
+import { VerifyMail } from './pages/VerifyMail.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-
-      <Routes>
-        <Route element={<App />}>
-
-          <Route path="/" element={<ShoterLinkPage />} />
-
-        </Route>
-
-        <Route path="/login" element={<Login />} />
-        <Route path="/*" element={<Navigate to='/' />} />
-
-
-        //aca redicrección a ruta privadas cuand se loguee el usuario
-
-      </Routes>
-
-    </BrowserRouter>
-  </StrictMode>,
+	<StrictMode>
+		<BrowserRouter>
+			<Routes>
+				<Route element={<App />}>
+					<Route
+						path='/'
+						element={<ShoterLinkPage />}
+					/>
+					<Route
+						path='/contact'
+						element={<ContactPage />}
+					/>
+				</Route>
+				<Route
+					path='/login'
+					element={<Auth />}
+				/>
+				<Route
+					path='/singup'
+					element={<Auth />}
+				/>
+				<Route
+					path='/verifyEmail'
+					element={<VerifyMail />}
+				/>
+				<Route
+					path='/*'
+					element={<Navigate to='/' />}
+				/>
+				//aca redicrección a ruta privadas cuand se loguee el usuario
+			</Routes>
+		</BrowserRouter>
+	</StrictMode>
 )
