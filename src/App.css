@@ -12,7 +12,8 @@
     --color-primary: #313848;
     --color-accentRed: #F28181;
     --color-accentBlue: #625772;
-    --color-lightBg: #FEFBF1;
+    /* --color-lightBg: #FEFBF1; */
+    --color-lightBg: #fff;
     --color-subtitle: #596582;
     --font-display: 'Raleway' , sans-serif;
     --breakpoint-sm: 740px;
@@ -92,7 +93,7 @@ body{
 :root
 {
 
-    --toastify-color-light: #FEFBF1;
+    --toastify-color-light: #eee;
     --toastify-color-progress-warning: #F28181;
     --toastify-icon-color-error: #F28181;
     /* --toastify-color-info: #FEFBF1;*/

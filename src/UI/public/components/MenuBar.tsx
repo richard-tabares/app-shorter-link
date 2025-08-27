@@ -12,12 +12,12 @@ export const MenuBar = () => {
 
 	const onLogin = () => {
 		navigate('/login', {
-			replace: true,
+			replace: false,
 		})
 	}
 
 	const onSingUp = () => {
-		navigate('/singup', { replace: true })
+		navigate('/singup', { replace: false })
 	}
 
 	return (
